@@ -1,0 +1,15 @@
+C:\Users\HOME\source\repos\Series_Analyzer\bin\Debug\net9.0\Series_Analyzer.exe
+C:\Users\HOME\source\repos\Series_Analyzer\bin\Debug\net9.0\Series_Analyzer.deps.json
+C:\Users\HOME\source\repos\Series_Analyzer\bin\Debug\net9.0\Series_Analyzer.runtimeconfig.json
+C:\Users\HOME\source\repos\Series_Analyzer\bin\Debug\net9.0\Series_Analyzer.dll
+C:\Users\HOME\source\repos\Series_Analyzer\bin\Debug\net9.0\Series_Analyzer.pdb
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\Series_Analyzer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\Series_Analyzer.AssemblyInfoInputs.cache
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\Series_Analyzer.AssemblyInfo.cs
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\Series_Analyzer.csproj.CoreCompileInputs.cache
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\Series_Analyzer.sourcelink.json
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\Series_Analyzer.dll
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\refint\Series_Analyzer.dll
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\Series_Analyzer.pdb
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\Series_Analyzer.genruntimeconfig.cache
+C:\Users\HOME\source\repos\Series_Analyzer\obj\Debug\net9.0\ref\Series_Analyzer.dll
