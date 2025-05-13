@@ -1,6 +1,9 @@
 ﻿
 
 
+using System.Globalization;
+using System.IO.Pipelines;
+
 namespace Example
 {
     class program()
@@ -11,13 +14,13 @@ namespace Example
             // Select an operation.
             void MenuSelection()
             {
-                List<int> list = new List<int>{1,6,3,6,5};
+                List<int> list = new List<int>{9,1,6,3,6,5,7};
                 string input = "";
                 while (input != "10")
                 {
                     Menu();
                     input = Console.ReadLine();
-                    
+                    int result;
                     switch (input)
                     {
                         case "1":
@@ -27,10 +30,35 @@ namespace Example
                             DisplayList(list);
                             break;
                         case "3":
-                            DisplayReverse(list);
+                            list = DisplayReverse(list);
+                            DisplayList(list);
                             break;
                         case "4":
-                            SortedLowHigh(list);
+                            list = SortedLowHigh(list);
+                            DisplayList(list);
+                            break;
+                        case "5":
+                            result = FindMax(list);
+                            Console.WriteLine(result);
+                            break;
+                        case "6":
+                            result = FindMin(list);
+                            Console.WriteLine(result);
+                            break;
+                        case "7":
+                            result = AverageNum(list);
+                            Console.WriteLine(result);
+                            break;
+                        case "8":
+                            result = NumOfElement(list);
+                            Console.WriteLine(result);
+                            break;
+                        case "9":
+                            result = SumOfNumbers(list);
+                            Console.WriteLine(result);
+                            break;
+                        default:
+                            Console.WriteLine("Value error, please try again.");
                             break;
                     }
                 }
@@ -84,24 +112,20 @@ namespace Example
                 }
             }
 
-            // print the numbers in list in reverse order.
-            void DisplayReverse(List<int> myList)
+            // Return the numbers in list in reverse order.
+            List<int> DisplayReverse(List<int> myList)
             {
-                for (int i = myList.Count-1; i > -1; i--)
+                for (int i = 0;i < myList.Count/2;i++)
                 {
-                    if (i == 0)
-                    {
-                        Console.WriteLine(myList[i]);
-                    }
-                    else
-                    {
-                        Console.Write(myList[i] + " ");
-                    } 
+                    int temp = myList[i];
+                    myList[i] = myList[myList.Count-1-i];
+                    myList[myList.Count-1-i] = temp;
                 }
+                return myList;
             }
 
             // prints from low to high.
-            void SortedLowHigh(List<int> myList)
+            List<int> SortedLowHigh(List<int> myList)
             {
                 for (int i = 0; i < myList.Count-1;i++)
                 {
@@ -118,7 +142,64 @@ namespace Example
                     myList[i] = myList[MinIndex];
                     myList[MinIndex] = temp;
                 }
-                DisplayList(myList);
+                return myList;
+            }
+
+            // Prints maximum value.
+            int FindMax(List<int> myList)
+            {
+                int NumMax = myList[0];
+                for (int i = 1; i < myList.Count;i++)
+                {
+                    if (NumMax < myList[i])
+                    {
+                        NumMax = myList[i];
+                    }
+                }
+                return NumMax;
+            }
+
+            // Prints minimum value.
+            int FindMin(List<int> myList)
+            {
+                int NumMin = myList[0];
+                for (int i = 1; i < myList.Count;i++)
+                {
+                    if (NumMin > myList[i])
+                    {
+                        NumMin = myList[i];
+                    }
+                }
+                return NumMin;
+            }
+
+            // Returns the average of numbers.
+            int AverageNum(List<int> myList)
+            {
+                int sum = SumOfNumbers(myList);
+                return sum / myList.Count;
+            }
+
+            // Count the element in list.
+            int NumOfElement(List<int> myList)
+            {
+                int count = 0;
+                foreach (int num in myList)
+                {
+                    count++;
+                }
+                return count;
+            }
+            
+            // Summarize numbrs and return the result.
+            int SumOfNumbers(List<int> myList)
+            {
+                int sum = 0;
+                foreach (int num in myList)
+                {
+                    sum += num;
+                }
+                return sum;
             }
         }
     }
