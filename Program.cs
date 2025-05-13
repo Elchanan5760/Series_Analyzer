@@ -84,16 +84,37 @@ namespace Example
             // creat a new list.
             List<int> NewSeries()
             {
-                Console.WriteLine("Please enter the numbers");
-                string input = Console.ReadLine();
-                string[] arr = input.Split(" ");
-                List<int> newlist = new List<int>();
-                foreach (string num in arr)
+                List<int> newList = new List<int>();
+                bool cond = false;
+                string errorText = "P";
+                do
                 {
-                    int integer = Convert.ToInt32(num);
-                    newlist.Add(integer);
+                    newList = new List<int>();
+                    cond = false;
+                    Console.WriteLine($"{errorText}lease enter a numbers with spaces:");
+                    string input = Console.ReadLine();
+                    string[] arr = input.Split(" ");
+                    foreach (string num in arr)
+                    {
+                        foreach (char c in num)
+                        {
+                            if (! char.IsDigit(c))
+                            {
+                                cond = true;
+                                errorText = "You can enter only numbers, p";
+                            }
+                        }
+                        if (! cond)
+                        {
+                            int integer = Convert.ToInt32(num);
+                            newList.Add(integer);
+                            cond = false;
+                        }   
+                    }
                 }
-                return newlist;
+                while (cond);
+                
+                return newList;
             }
             
             // print numbers in the list.
