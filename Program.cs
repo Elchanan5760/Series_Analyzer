@@ -92,7 +92,7 @@ namespace Example
             {
                 newList = new List<int>();
                 cond = false;
-                Console.WriteLine($"{errorText}lease enter a numbers with spaces:");
+                Console.WriteLine($"{errorText}lease enter 3 or more numbers with spaces:");
                 input = Console.ReadLine();
                 string[] arr = input.Split(" ");
                 foreach (string num in arr)
@@ -102,7 +102,7 @@ namespace Example
                         if (! char.IsDigit(c))
                         {
                             cond = true;
-                            errorText = "You can enter only numbers, p";
+                            errorText = "It needs to be only numbers, p";
                         }
                     }
                     if (! cond)
@@ -112,8 +112,12 @@ namespace Example
                         cond = false;
                     }   
                 }
+                if (newList.Count < 3)
+                {
+                    errorText = "It needs to be 3 or more numbers, p";
+                }
             }
-            while (cond);
+            while (cond || newList.Count < 3);
             
             return newList;
         }
