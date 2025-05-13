@@ -10,11 +10,11 @@ namespace Example
     {
         static void Main()
         {
-            MenuSelection();
+            MenuSelection([2,6,4]);
             // Select an operation.
-            void MenuSelection()
+            void MenuSelection(int[] args)
             {
-                List<int> list = new List<int>{9,1,6,3,6,5,7};
+                List<int> list = new List<int>(args);
                 string input = "";
                 while (input != "10")
                 {
@@ -58,7 +58,7 @@ namespace Example
                             Console.WriteLine(result);
                             break;
                         default:
-                            Console.WriteLine("Value error, please try again.");
+                            Console.WriteLine("The option you selected does not exist, please try again.");
                             break;
                     }
                 }
@@ -87,12 +87,13 @@ namespace Example
                 List<int> newList = new List<int>();
                 bool cond = false;
                 string errorText = "P";
+                string input;
                 do
                 {
                     newList = new List<int>();
                     cond = false;
                     Console.WriteLine($"{errorText}lease enter a numbers with spaces:");
-                    string input = Console.ReadLine();
+                    input = Console.ReadLine();
                     string[] arr = input.Split(" ");
                     foreach (string num in arr)
                     {
@@ -117,7 +118,7 @@ namespace Example
                 return newList;
             }
             
-            // print numbers in the list.
+            // Print numbers in the list.
             void DisplayList(List<int> myList)
             {
                 for (int i = 0;i< myList.Count;i++)
@@ -145,7 +146,7 @@ namespace Example
                 return myList;
             }
 
-            // prints from low to high.
+            // Returns in order from low to high.
             List<int> SortedLowHigh(List<int> myList)
             {
                 for (int i = 0; i < myList.Count-1;i++)
